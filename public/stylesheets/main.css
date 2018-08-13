@@ -1,0 +1,137 @@
+body {
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ============================导航栏============================ */
+.navbar-area {
+	background-color: #0E2C4C;
+  color: white;
+  border-bottom: inset 2px #00EFFF;
+  width: 100%;
+  z-index: 2;
+}
+.contain {
+  display: flex;
+	flex-flow: row;
+}
+.navbar-area .contain {
+	margin: 0;
+  padding: 10px 30px;
+  padding-right: 40px;
+	list-style-type: none;
+}
+.nav-items-right {
+  margin-left: 30px;
+  padding-top: 0px;
+}
+.navbar-items {
+	display: block;
+	border-radius: 4px;
+	color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding-top: 5px;
+}
+.nomeanspace {
+  margin-left: auto;
+}
+.exit-navigation {
+  margin-left: 30px;
+}
+
+.navbar-area li a:hover {
+  color: #DBEEF4;
+  cursor: pointer;
+}
+.app-logo a {
+  padding: 0;
+  font-size: 26px;
+}
+.navbar-area svg {
+  margin-right: 10px;
+}
+.havelogin .dropdown-menu {
+  min-width: 110px;
+}
+/* ============================导航栏============================ */
+
+/* ============================支付页面============================ */
+.main-page .media{
+  border-bottom: 1px solid #eee;
+}
+.main-page .media-body{
+  padding: 30px;
+}
+.main-page .media-heading{
+  padding-bottom: 30px;
+}
+
+.payuser{
+  padding: 20px 30px;
+  border-bottom: 1px solid #eee;
+}
+.payuser .form-group{
+  margin-bottom: 5px;
+}
+.productprice{
+  font-weight: bold;
+  padding: 20px 30px;
+  text-align: right;
+  font-size: 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.paybutton{
+  text-align: right;
+  padding: 20px 30px 200px 30px;
+}
+
+.spinner {
+  width: 100px;
+}
+.spinner input {
+  text-align: right;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 0px 5px;
+  margin-left: -1px;
+  height: 18px;
+  position: relative;
+  border-radius: 0;
+}
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+/* ============================支付页面============================ */

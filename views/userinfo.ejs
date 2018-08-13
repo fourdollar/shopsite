@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/main.css' />
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <script src="javascripts/jquery-1.9.1.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <script src="javascripts/userinfo.js"></script>
+  </head>
+  <body>
+    <nav class="navbar-area">
+      <ul class="contain">
+        <li class="app-logo">
+          <a class="navbar-items" href="/">Homework from Paypal</a>
+        </li>
+        <li class="nomeanspace nav-items-right">
+        </li>
+        <li class="nologin nav-items-right">
+          <a class="navbar-items" href="/"><i class="far fa-times-circle"></i>主页</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container main-page">
+      <div class="page-header">
+        <h1>用户信息 <small class="userid"></small></h1>
+      </div>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="username" class="col-sm-2 control-label">用户名</label>
+          <div class="col-sm-8">
+            <p class="form-control-static userid">username</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastname" class="col-sm-2 control-label">姓</label>
+          <div class="col-sm-8">
+            <input type="text" placeholder="Last Name" class="lastname hidden form-control input-no-border">
+            <p class="form-control-static lastname"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="firstname" class="col-sm-2 control-label">名</label>
+          <div class="col-sm-8">
+            <input type="text" placeholder="First Name" class="firstname hidden form-control input-no-border">
+            <p class="form-control-static firstname"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" class="col-sm-2 control-label">邮箱</label>
+          <div class="col-sm-8">
+            <input type="text" placeholder="Email" class="email hidden form-control input-no-border">
+            <p class="form-control-static email"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone" class="col-sm-2 control-label">电话</label>
+          <div class="col-sm-8">
+            <input type="text" placeholder="Phone" class="phone hidden form-control input-no-border">
+            <p class="form-control-static phone"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="postal_code" class="col-sm-2 control-label">邮编</label>
+          <div class="col-sm-8">
+            <input type="text" placeholder="Postal_code" class="postal_code hidden form-control input-no-border">
+            <p class="form-control-static postal_code"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address1" class="col-sm-2 control-label">地址1</label>
+          <div class="col-sm-8">
+            <input type="text" placeholder="Line1" class="address1 hidden form-control input-no-border">
+            <p class="form-control-static address1"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address2" class="col-sm-2 control-label">地址2</label>
+          <div class="col-sm-8">
+            <input type="text" placeholder="Line2" class="address2 hidden form-control input-no-border">
+            <p class="form-control-static address2"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="city" class="col-sm-2 control-label">城市</label>
+          <div class="col-sm-8">
+            <input type="text" placeholder="City" class="city hidden form-control input-no-border">
+            <p class="form-control-static city"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="state" class="col-sm-2 control-label">州</label>
+          <div class="col-sm-8">
+            <input type="text" placeholder="State" class="state hidden form-control input-no-border">
+            <p class="form-control-static state"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-8">
+            <button type="button" id="change" class="btn btn-default form-control-static">修改</button>
+            <button type="submit" id="save" class="btn btn-default hidden">保存</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </body>
+</html>

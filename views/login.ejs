@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/user.css" rel="stylesheet">
+    <script src="javascripts/jquery-1.9.1.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <script src="javascripts/user.js"></script>
+  </head>
+
+  <body>
+    <div id="Login">
+      <header class="user-nav">
+        <div class="usercontainer">
+          <div class="nav-left">
+            Palpal assignment
+          </div>
+          <div class="nav-right">
+          </div>
+        </div>
+      </header>
+      <div class="user-fullpage">
+        <div class="user-content">
+          <div class="usercontainer">
+            <div class="row">
+              <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
+                <div class="register-form">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">用户登录</h3>
+                    </div>
+                    <div class="card-content">
+                      <div class="message" id="error-message">
+  					              <%= typeof error_message === 'undefined' ? '' : error_message %>
+                      </div>
+                      <div class="form-group">
+                        <label>用户名</label>
+                        <input type="text" id="username" placeholder="User Name" class="form-control input-no-border">
+                        <p class="message username"></p>
+                      </div>
+                      <div class="form-group">
+                        <label>密码</label>
+                        <input type="password" id="pw" placeholder="Password" class="form-control input-no-border">
+                        <p class="message password"></p>
+                      </div>
+                    </div>
+                    <div class="card-footer text-center">
+                      <button type="submit" class="btn btn-fill btn-wd" id="login">登录</button>
+                    </div>
+                    <div class="message text-center" id="error-message">
+                        <a href="/register" style="color:blue;">前往注册</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
