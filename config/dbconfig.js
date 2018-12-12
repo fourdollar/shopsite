@@ -1,8 +1,8 @@
 module.exports = {
     dev: {
-        host: 'shopsiteinstance.cpkdwvtfmp4h.ap-southeast-1.rds.amazonaws.com',
+        host: '127.0.0.1',
         user: 'fengsiyuan',
-        password: 'xxxxxxxx',
+        password: 'ziqing2013',
         database: 'shopsitedb',
         port: '3306',
         dialect: "mysql",
