@@ -1,8 +1,8 @@
 module.exports = {
     dev: {
         host: '127.0.0.1',
-        user: 'fengsiyuan',
-        password: 'ziqing2013',
+        user: 'root',
+        password: 'password',
         database: 'shopsitedb',
         port: '3306',
         dialect: "mysql",

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/main.css' />
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <script src="/javascripts/jquery-1.9.1.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/fontawesome-all.js"></script>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.39.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.39.0/js/paypal-checkout.min.js"></script>
+    <script src="/javascripts/ecbt.js"></script>
+
+  </head>
+  <body>
+    <nav class="navbar-area">
+      <ul class="contain">
+        <li class="app-logo">
+          <a class="navbar-items" href="/">Paypal MTS TEST</a>
+        </li>
+        <li class="nomeanspace nav-items-right">
+        </li>
+        <li class="havelogin nav-items-right">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="userid"></span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="/userinfo">用户信息</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a onclick="logout()">退出登录</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-items-right">
+          <a class="navbar-items" href="/"><i class="far fa-times-circle"></i>主页</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container main-page">
+      <div class="page-header">
+        <h1>购买产品</h1>
+      </div>
+      <div class="media">
+        <div class="media-left media-">
+          <a href="#">
+            <img class="media-object" src="/images/mac.png" alt="...">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading productname"><%= products[0].name %></h4>
+          <div class="productintro">
+            <p>商品介绍： <span class="description"><%= products[0].description %></span></p>
+            <p>购买数量： </p>
+            <div class="input-group spinner">
+              <div class="form-control purchasenum">1</div>
+              <div class="input-group-btn-vertical">
+                <button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+                <button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="payuser">
+        <p style="font-weight:bold;">付款用户信息<span style="font-weight:normal;font-size:10px;">(按照用户信息预填)</span></p>
+        <form class="form-horizontal row">
+          <div class="col-md-5">
+            <div class="form-group payname">
+              <label for="lastname" class="col-sm-2 control-label">姓</label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="Last Name" class="lastname form-control input-no-border">
+              </div>
+            </div>
+            <div class="form-group payname">
+              <label for="firstname" class="col-sm-2 control-label">名</label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="First Name" class="firstname form-control input-no-border">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-sm-2 control-label">邮箱</label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="Email" class="email form-control input-no-border">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="col-sm-2 control-label">电话</label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="Phone" class="phone form-control input-no-border">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="form-group">
+              <label for="postal_code" class="col-sm-2 control-label">邮编</label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="Postal_code" class="postal_code form-control input-no-border">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address1" class="col-sm-2 control-label">地址1</label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="Line1" class="address1 form-control input-no-border">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address2" class="col-sm-2 control-label">地址2</label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="Line2" class="address2 form-control input-no-border">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="city" class="col-sm-2 control-label">城市</label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="City" class="city form-control input-no-border">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="state" class="col-sm-2 control-label">州</label>
+              <div class="col-sm-8">
+                <input type="text" placeholder="State" class="state form-control input-no-border">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="productprice">
+        <p>总计 USD <span><%= products[0].price %></span></p>
+      </div>
+      <div class="paybutton">
+        <div id="paypal-button"></div>
+      </div>
+    </div>
+  </body>
+</html>

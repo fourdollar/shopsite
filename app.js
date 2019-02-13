@@ -10,6 +10,7 @@ var register = require('./routes/register');
 var login = require('./routes/login');
 var userinfo = require('./routes/userinfo');
 var payment = require('./routes/payment');
+var ecbt = require('./routes/ecbt');
 var success = require('./routes/success');
 
 var app = express();
@@ -29,6 +30,7 @@ app.use('/register', register);
 app.use('/login', login);
 app.use('/userinfo', userinfo);
 app.use('/payment', payment);
+app.use('/ecbt', ecbt);
 app.use('/success', success);
 
 // catch 404 and forward to error handler

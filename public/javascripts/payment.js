@@ -55,60 +55,60 @@ $(function() {
 
   // 渲染支付按钮
   paypal.Button.render({
-  env: 'sandbox', // 使用sandbox
-  // Set up the payment:
-  // 1. Add a payment callback
-  client: {
-    sandbox: 'AUKFPPhADQDxBRU4KO5pwQZRTI2_UBv9vgCkRT9aL_H2vor210bLCChuJwP--uoPeWSu1abJbtEfhymY',
-    production: 'demo_production_client_id'
-  },
-  locale: 'en_US',
-  style:{
-    label:"buynow",
-    color:"black",
-    size:"medium"
-  },
-  payment: function(data, actions) {
-    // 2. Make a request to your server
-    // 取得需要的商品以及用户信息
-    var payparams = {
-      totalprice: parseInt($(".productprice span").text()),
-      price: price,
-      name: productname,
-      description: description,
-      quantity: parseInt($('.spinner .purchasenum').text()),
-      recipient_name: $('.firstname').val()+" "+$('.lastname').val(),
-      line1: $('.address1').val(),
-      line2: $('.address2').val(),
-      city: $('.city').val(),
-      country_code: 'US',
-      postal_code: $('.postal_code').val(),
-      phone: $('.phone').val(),
-      state: $('.state').val()
+    env: 'sandbox', // 使用sandbox
+    // Set up the payment:
+    // 1. Add a payment callback
+    client: {
+      sandbox: 'AUKFPPhADQDxBRU4KO5pwQZRTI2_UBv9vgCkRT9aL_H2vor210bLCChuJwP--uoPeWSu1abJbtEfhymY',
+      production: 'demo_production_client_id'
+    },
+    locale: 'en_US',
+    style:{
+      label:"buynow",
+      color:"black",
+      size:"medium"
+    },
+    payment: function(data, actions) {
+      // 2. Make a request to your server
+      // 取得需要的商品以及用户信息
+      var payparams = {
+        totalprice: parseInt($(".productprice span").text()),
+        price: price,
+        name: productname,
+        description: description,
+        quantity: parseInt($('.spinner .purchasenum').text()),
+        recipient_name: $('.firstname').val()+" "+$('.lastname').val(),
+        line1: $('.address1').val(),
+        line2: $('.address2').val(),
+        city: $('.city').val(),
+        country_code: 'US',
+        postal_code: $('.postal_code').val(),
+        phone: $('.phone').val(),
+        state: $('.state').val()
+      }
+
+      return actions.request.post('/payment/create-payment/',payparams)
+          .then(function(res) {
+            // 3. Return res.id from the response
+            return res.id;
+          });
+    },
+    // Execute the payment:
+    // 1. Add an onAuthorize callback
+    onAuthorize: function(data, actions) {
+      // 2. Make a request to your server
+      return actions.request.post('/payment/execute-payment/', {
+          paymentID: data.paymentID,
+          payerID:   data.payerID
+        })
+          .then(function(res) {
+            // 3. Show the buyer a confirmation message.
+            // 从response里取得transactionID并转向购买成功画面
+            console.log(res.body.transactions[0].related_resources[0].sale.id);
+            window.location.href = "/success/"+res.body.transactions[0].related_resources[0].sale.id;
+
+          });
     }
-
-    return actions.request.post('/payment/create-payment/',payparams)
-        .then(function(res) {
-          // 3. Return res.id from the response
-          return res.id;
-        });
-  },
-  // Execute the payment:
-  // 1. Add an onAuthorize callback
-  onAuthorize: function(data, actions) {
-    // 2. Make a request to your server
-    return actions.request.post('/payment/execute-payment/', {
-        paymentID: data.paymentID,
-        payerID:   data.payerID
-      })
-        .then(function(res) {
-          // 3. Show the buyer a confirmation message.
-          // 从response里取得transactionID并转向购买成功画面
-          console.log(res.body.transactions[0].related_resources[0].sale.id);
-          window.location.href = "/success/"+res.body.transactions[0].related_resources[0].sale.id;
-
-        });
-  }
-}, '#paypal-button');
+  }, '#paypal-button');
 
 });
